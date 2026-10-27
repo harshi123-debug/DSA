@@ -1,5 +1,5 @@
 /*
-    Topic: Bubble Sort
+    Topic: Selection Sort
     Language: C++
 
     Programs:
