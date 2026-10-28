@@ -154,7 +154,7 @@ cout << "Invalid Choice\n";
             return 0;
 }
     
-if (choice >= 1 && choice <= 2) {
+if (choice >= 1 && choice <= 3) {
         cout << "Sorted array: ";
         for (int i = 0; i < n; i++) {
             cout << arr[i] << " ";
