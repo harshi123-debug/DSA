@@ -105,6 +105,25 @@ void quickSort(vector<int>& arr, int low, int high) {
     }
 }
 
+int partition(vector<int>& arr, int low, int high) {
+
+    int pivot = arr[high];
+
+    int i = low - 1;
+
+    for (int j = low; j < high; j++) {
+
+        if (arr[j] < pivot) {
+            i++;
+            swap(arr[i], arr[j]);
+        }
+    }
+
+    swap(arr[i + 1], arr[high]);
+
+    return i + 1;
+}
+
 int main() {
     int n;
     cout << "Enter n: ";
