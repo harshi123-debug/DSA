@@ -2,6 +2,8 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+// Program 1: Merge Sort
+
 void merge(vector<int>& arr, int left, int mid, int right) {
     vector<int> temp;
 
@@ -46,7 +48,7 @@ void mergeSort(vector<int>& arr, int left, int right) {
     merge(arr, left, mid, right);
 }
 
-//Merge two srted array
+// Program 2: Merge Two Sorted Arrays
 
 vector<int> mergeArrays(vector<int>& a, vector<int>& b) {
     vector<int> ans;
@@ -77,94 +79,95 @@ vector<int> mergeArrays(vector<int>& a, vector<int>& b) {
     return ans;
 }
 
-//quick sort
-
-int partition(vector<int>& arr, int low, int high) {
-    int pivot = arr[high];
-
-    int i = low - 1;
-
-    for (int j = low; j < high; j++) {
-        if (arr[j] < pivot) {
-            i++;
-            swap(arr[i], arr[j]);
-        }
-    }
-
-    swap(arr[i + 1], arr[high]);
-
-    return i + 1;
-}
-
-void quickSort(vector<int>& arr, int low, int high) {
-    if (low < high) {
-        int p = partition(arr, low, high);
-
-        quickSort(arr, low, p - 1);
-        quickSort(arr, p + 1, high);
-    }
-}
-
-int partition(vector<int>& arr, int low, int high) {
-
-    int pivot = arr[high];
-
-    int i = low - 1;
-
-    for (int j = low; j < high; j++) {
-
-        if (arr[j] < pivot) {
-            i++;
-            swap(arr[i], arr[j]);
-        }
-    }
-
-    swap(arr[i + 1], arr[high]);
-
-    return i + 1;
-}
-
-int partitionArray(vector<int>& arr, int low, int high, int pivotIndex) {
-
-    swap(arr[pivotIndex], arr[high]);
-
-    int pivot = arr[high];
-    int i = low - 1;
-
-    for (int j = low; j < high; j++) {
-        if (arr[j] < pivot) {
-            i++;
-            swap(arr[i], arr[j]);
-        }
-    }
-
-    swap(arr[i + 1], arr[high]);
-
-    return i + 1;
-}
+// Main Function
 
 int main() {
-    int n;
-    cout << "Enter n: ";
-    cin >> n;
+    int choice;
 
-    vector<int> arr(n);
+    cout << "===== MERGE SORT PROGRAMS =====" << endl;
+    cout << "1. Basic Merge Sort" << endl;
+    cout << "2. Merge Two Sorted Arrays" << endl;
+    cout << "Enter your choice: ";
+    cin >> choice;
 
-    cout << "Enter elements: ";
-    for (int i = 0; i < n; i++) {
-        cin >> arr[i];
-    }
+    switch (choice) {
 
-    if (n > 0) {
-        mergeSort(arr, 0, n - 1);
-    }
+        case 1: {
+            int n;
 
-    cout << "Sorted Array: ";
-    for (int x : arr) {
-        cout << x << " ";
+            cout << "Enter number of elements: ";
+            cin >> n;
+
+            if (n < 0) {
+                cout << "Invalid size!";
+                break;
+            }
+
+            vector<int> arr(n);
+
+            cout << "Enter elements: ";
+            for (int i = 0; i < n; i++) {
+                cin >> arr[i];
+            }
+
+            if (n > 0) {
+                mergeSort(arr, 0, n - 1);
+            }
+
+            cout << "Sorted Array: ";
+            for (int x : arr) {
+                cout << x << " ";
+            }
+
+            break;
+        }
+
+        case 2: {
+            int n, m;
+
+            cout << "Enter size of first array: ";
+            cin >> n;
+
+            if (n < 0) {
+                cout << "Invalid size!";
+                break;
+            }
+
+            vector<int> a(n);
+
+            cout << "Enter first sorted array: ";
+            for (int i = 0; i < n; i++) {
+                cin >> a[i];
+            }
+
+            cout << "Enter size of second array: ";
+            cin >> m;
+
+            if (m < 0) {
+                cout << "Invalid size!";
+                break;
+            }
+
+            vector<int> b(m);
+
+            cout << "Enter second sorted array: ";
+            for (int i = 0; i < m; i++) {
+                cin >> b[i];
+            }
+
+            vector<int> ans = mergeArrays(a, b);
+
+            cout << "Merged Array: ";
+            for (int x : ans) {
+                cout << x << " ";
+            }
+
+            break;
+        }
+
+        default:
+            cout << "Invalid choice!";
     }
 
     return 0;
 }
-
-
