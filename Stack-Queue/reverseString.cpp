@@ -7,8 +7,23 @@ void reverseString(string &s){
         st.push(s[i]);
 
     }
-    for(int i=0; i<s.length(); i++){
-        s[i]=st.top();
+    string rev="";
+
+    while(!st.empty()){
+        rev+=st.top();
         st.pop();
     }
+    cout<<"Reverse String is: "<<rev<<endl;
+
+}
+int main(){
+    string s;
+    cout<<"Enter the String: ";
+    cin>>s;
+
+    cout<<"Original String is: "<<s<<endl;
+
+  
+    reverseString(s);
+
 }
