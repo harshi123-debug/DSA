@@ -29,7 +29,7 @@ void balancePar(string str){
                 s.pop();
             }else{
                 cout<<"Unbalanced Parenthesis "<<endl;
-                return;
+                return; 
             }
         }
     }
