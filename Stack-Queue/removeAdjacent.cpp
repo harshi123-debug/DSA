@@ -11,6 +11,7 @@ string removeAdjacent(string s){
         }else{
             st.push(s[i]);
         }
+        
     }
     
     string ans= "";
